@@ -50,6 +50,8 @@ By answering these questions during each stage of the CRISP-DM process, you will
 
 ## Example Project - Predict Insurance Claim Fraud
 
+### Business Understanding
+
 In this example, we will answer the questions for the Business Understanding stage of the CRISP-DM process to address the machine learning problem of predicting insurance claim fraud for a fictitious company called Acme Inc.
 
 1. Main objective of the project:
@@ -79,3 +81,69 @@ In this example, we will answer the questions for the Business Understanding sta
    - The model's performance metrics will be monitored and reported to stakeholders to support data-driven decision-making and demonstrate the project's impact on reducing financial losses due to fraud.
 
 By answering these questions, we have established a clear understanding of the business context and objectives for the project, which will help guide the subsequent stages of the CRISP-DM process.
+
+### Data Understanding
+
+1. Data sources available for this project:
+   - ClaimData: A database containing historical insurance claims with details such as claim ID, policy number, date of claim, claim amount, and claim status (fraudulent or legitimate).
+   - PolicyData: A dataset of policyholder information, including policy number, policyholder name, address, age, gender, policy type, policy start date, and policy end date.
+   - ExternalFraudData: An external dataset from a fraud detection agency containing known fraudulent claims and associated policyholder details.
+
+2. Quality of the data:
+   - ClaimData: Mostly complete and accurate but may contain some inconsistencies due to manual data entry errors.
+   - PolicyData: High quality and complete information about policyholders, with few missing or inconsistent records.
+   - ExternalFraudData: Complete and accurate, but only a limited number of cases are available for training the model.
+
+3. Legal or ethical considerations in using the data:
+   - Ensure proper data handling and storage to maintain policyholder privacy and comply with data protection regulations.
+   - Obtain necessary permissions to use ExternalFraudData for model training.
+   - Make sure the model does not introduce biases or unfairly discriminate against specific groups of policyholders.
+
+4. Relevant features for the project's objective:
+   - From ClaimData: claim ID, policy number, date of claim, claim amount, and claim status.
+   - From PolicyData: policy number, policyholder age, gender, policy type, and policy duration (calculated from policy start and end dates).
+   - From ExternalFraudData: All features, as they provide valuable information about known fraudulent claims.
+
+5. Data sources requiring preprocessing or cleaning:
+   - ClaimData: May need cleaning to address inconsistencies and missing values.
+   - PolicyData: Requires minimal preprocessing, mainly to calculate policy duration.
+   - ExternalFraudData: May need preprocessing to align with the format and structure of ClaimData and PolicyData.
+
+By answering these questions, we have gained an understanding of the data sources, their quality, and the necessary preprocessing steps, which will help inform the Data Preparation stage of the CRISP-DM process.
+
+### Data Preparation
+
+1. Data cleaning steps necessary:
+   - Missing values:
+     * ClaimData: Impute missing claim amounts with the average claim amount by policy type. For missing claim dates, consider using the median date for that policy type.
+     * PolicyData: Impute missing policy start and end dates using the median dates for the corresponding policy type.
+     * ExternalFraudData: No missing values identified.
+
+   - Outlier detection:
+     * ClaimData: Identify and analyze outliers in claim amounts using techniques like the IQR method or Z-score. Investigate the causes and decide whether to keep, adjust, or remove the outliers.
+     * PolicyData: Check for unrealistic values in age and policy duration, and investigate the causes. Consider adjusting or removing these records if they appear to be errors.
+     * ExternalFraudData: No significant outliers identified.
+
+   - Categorical encoding:
+     * ClaimData: No categorical features identified that require encoding.
+     * PolicyData: One-hot encode the policy type feature to convert it into a numerical format suitable for machine learning algorithms.
+     * ExternalFraudData: No categorical features identified that require encoding.
+
+2. Data transformation or aggregation for analysis:
+   - Merge ClaimData and PolicyData on the policy number to create a single dataset with all relevant features for each claim.
+   - Calculate additional features, such as time since the policy was issued or time until policy expiration, to potentially improve model performance.
+
+3. Feature engineering or selection techniques:
+   - Use domain knowledge to create new features that might be relevant to predicting fraudulent claims, such as claim frequency for a policyholder.
+   - Apply feature selection techniques, such as recursive feature elimination or LASSO regularization, to identify the most important features for the model.
+
+4. Data split into training, validation, and testing sets:
+   - Divide the merged dataset into three subsets: 70% for training, 15% for validation, and 15% for testing.
+   - Ensure that the distribution of fraudulent and legitimate claims is similar across all three subsets using stratified sampling.
+
+5. Additional data sources needed to enrich the dataset:
+   - Consider obtaining additional external datasets with more known fraudulent cases to improve model performance.
+   - Explore the possibility of incorporating data from other sources, such as social media or customer reviews, to provide additional context for detecting fraudulent claims.
+
+By addressing these questions, we have outlined the data preparation steps necessary to clean, preprocess, and transform the data for modeling in the insurance claim fraud prediction project.
+
