@@ -2,7 +2,7 @@
 Using the CRISP DM process to execute a Data Science project plan. 
 Specific questions that needs to be asked by each stage so I can execute my project effectively.
 
-# CRISP-DM Questions
+## CRISP-DM Questions
 
 1. Business Understanding:
    - What is the main objective of the project?
@@ -48,9 +48,10 @@ Specific questions that needs to be asked by each stage so I can execute my proj
 
 By answering these questions during each stage of the CRISP-DM process, you will have a comprehensive project plan that can be effectively executed.
 
-## Example Project - Predict Insurance Claim Fraud
+# *Example Project* 
+## Predict Insurance Claim Fraud
 
-### Business Understanding
+## 1/ Business Understanding
 
 In this example, we will answer the questions for the Business Understanding stage of the CRISP-DM process to address the machine learning problem of predicting insurance claim fraud for a fictitious company called Acme Inc.
 
@@ -82,7 +83,7 @@ In this example, we will answer the questions for the Business Understanding sta
 
 By answering these questions, we have established a clear understanding of the business context and objectives for the project, which will help guide the subsequent stages of the CRISP-DM process.
 
-### Data Understanding
+## Data Understanding
 
 1. Data sources available for this project:
    - ClaimData: A database containing historical insurance claims with details such as claim ID, policy number, date of claim, claim amount, and claim status (fraudulent or legitimate).
@@ -111,7 +112,7 @@ By answering these questions, we have established a clear understanding of the b
 
 By answering these questions, we have gained an understanding of the data sources, their quality, and the necessary preprocessing steps, which will help inform the Data Preparation stage of the CRISP-DM process.
 
-### Data Preparation
+## Data Preparation
 
 1. Data cleaning steps necessary:
    - Missing values:
@@ -147,7 +148,7 @@ By answering these questions, we have gained an understanding of the data source
 
 By addressing these questions, we have outlined the data preparation steps necessary to clean, preprocess, and transform the data for modeling in the insurance claim fraud prediction project.
 
-### Modeling
+## Modeling
 
 1. Suitable machine learning algorithms or statistical techniques:
    - Experiments conducted with the following algorithms:
@@ -183,7 +184,7 @@ By addressing these questions, we have outlined the data preparation steps neces
 
 By addressing these questions, we have completed the Modeling stage, selecting Logistic Regression as the best model for our insurance claim fraud prediction project and understanding the challenges faced during the experimentation process.
 
-### Evaluation
+## Evaluation
 
 | Model               | Precision | Recall | F1-score | AUC-ROC | Performance | Simplicity | Interpretability | Selected Model |
 |---------------------|-----------|--------|----------|---------|-------------|------------|------------------|----------------|
@@ -216,7 +217,7 @@ With the table above, we can now answer the Evaluation questions:
 
 By evaluating the model's performance and alignment with business objectives, we can conclude that the Logistic Regression model is a suitable choice for the insurance claim fraud prediction project.
 
-### Deployment
+## Deployment
 
 We recommend presenting the results of the Logistic Regression model to stakeholders to secure their buy-in before proceeding with deployment. This presentation should include a summary of the project's objectives, the model's performance metrics, and the benefits of implementing the model in the insurance claim processing workflow.
 
